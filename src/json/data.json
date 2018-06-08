@@ -1,0 +1,13 @@
+{
+  "ImgUrl":[
+    {
+      "src":"/static/img/logo.png"
+    },
+    {
+      "src":"/static/img/banner/1.png"
+    },
+    {
+      "src":"/static/img/banner/2.png"
+    }
+  ]
+}

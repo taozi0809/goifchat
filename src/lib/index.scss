@@ -1,0 +1,293 @@
+@mixin display-flex($flex...) {
+  display: -webkit-$flex; /* Safari ,Webkit内核的浏览器，必须加上-webkit前缀。*/
+  display: $flex;
+}
+
+@mixin transitionFun($v...){
+  -webkit-transition: $v;
+     -moz-transition: $v;
+          transition: $v;
+}
+
+
+.index{
+
+  .header{
+    position: fixed;
+    z-index: 9;
+    top:0;
+    left:0;
+    width: 100%;
+    //overflow: hidden;
+    box-sizing: border-box;
+    zoom:1;
+    padding: 0 50px;
+    min-width: 1050px;
+    .logo-box{
+      width: 146px;
+      float: left;
+      height: 100px;
+      line-height:110px;
+      img{
+        width: 100%;
+      }
+    }
+
+    .menu-box{
+      float:right;
+      ul{
+        @include display-flex(flex);
+        justify-content:center;
+        align-items:center;
+        height: 100px;
+        li{
+          margin:0 25px;
+          padding:20px 0;
+          box-sizing: border-box;
+          a{
+            font-size: 18px;
+            font-family: "Century Gothic";
+            color: #fff;
+            text-decoration: none;
+          }
+          a:hover{
+            color: #8fc91f;
+          }
+          a:after{
+            display: block;
+            content: "";
+            width:0;
+            height: 2px;
+            background: #8fc91f;
+            border-radius: 2px;
+            box-sizing: border-box;
+            margin-top: 10px;
+            @include transitionFun(width,0.5s);
+          }
+          a:hover:after{
+            width:100%;
+          }
+
+        }
+        li:nth-child(2){
+          a{
+            font-family: "microsoft yahei";
+          }
+        }
+        li:last-child{
+          background-color: rgba(94, 94, 94,.5);
+          width:34px;
+          height:24px;
+          margin: 0;
+          padding: 0;
+          text-align: center;
+          position: relative;
+          top:-4px;
+          cursor: pointer;
+          overflow: hidden;
+          a{
+            font-size: 12px;
+            color: #fff;
+            position: relative;
+            top:0;
+            @include transitionFun(top,0.5s);
+          }
+          a:hover{
+            color: #fff;
+          }
+          .ko:after{
+            display:block;
+            content: "CN";
+            width:34px;
+            height: 24px;
+            line-height:24px;
+            background:none;
+            border-radius:0;
+            box-sizing: border-box;
+            margin-top:-4px;
+            text-align: center;
+            color: #8fc91f;
+          }
+          .ch:after{
+            display:block;
+            content: "KR";
+            width:34px;
+            height: 24px;
+            line-height:17px;
+            background:none;
+            border-radius:0;
+            box-sizing: border-box;
+            margin-top:0px;
+            text-align: center;
+            color: #8fc91f;
+          }
+        }
+        li:last-child:hover{
+            a{
+              top:-17px;
+              @include transitionFun(top,0.5s);
+            }
+        }
+      }
+    }
+
+  }
+  .header:after{
+    content: "";
+    clear: both;
+    display:block;
+    visibility:hidden;
+    height:0
+  }
+
+  .banner{
+    width:100%;
+    min-width: 1050px;
+    background: #000;
+    .item{
+      img {
+        width: 100%;
+      }
+      .des{
+        position: absolute;
+        top: 50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        width: 100%;
+        text-align: center;
+        p{
+          font-family: "Microsoft YaHei";
+          font-size:48px;
+          color: #fff;
+        }
+
+      }
+    }
+    .item1{
+      .des{
+        transform: translate(-56%,-50%);
+        p:first-child{
+          position: relative;
+          top:-40px;
+        }
+        p:last-child{
+          position: relative;
+          top:20px;
+          left:120px;
+        }
+      }
+    }
+    .item2{
+      .des{
+        text-align: center;
+        p:first-child{
+          font-family: "Microsoft YaHei UI Light";
+         letter-spacing: 16px;
+        }
+        //p:last-child{
+        //  font-size: 24px;
+        //  padding-top:80px;
+        //  font-family: Avian;
+        //}
+      }
+    }
+    .item3{
+      .des{
+        text-align: center;
+        p{
+          font-family: "Microsoft YaHei UI Light";
+          color: #000;
+        }
+        p:first-child{
+
+        }
+        p:last-child{
+          position: relative;
+          top:40px;
+        }
+      }
+    }
+
+  }
+
+  .goifchat{
+    width: 100%;
+    background: #000;
+    min-width: 1050px;
+    text-align: center;
+    .goifchat-title{
+      font-family: "Century Gothic";
+      font-size: 36px;
+      text-align: center;
+      color: #8fc31f;
+      padding-top: 100px;
+    }
+    .goifchat-title-des{
+      font-family: "Microsoft YaHei UI Light";
+      font-size: 24px;
+      color: #fff;
+      text-align: center;
+      padding-top: 100px;
+    }
+    .app-img{
+      width: 100%;
+      min-width: 1050px;
+      margin: 0 auto;
+      text-align: center;
+      padding-top: 120px;
+      position: relative;
+      z-index:3;
+    }
+
+    .bot{
+      position: relative;
+      margin-top: -180px;
+      width: 100%;
+      min-width: 1050px;
+      .bot-bg{
+        width: 100%;
+      }
+      .download-btn{
+        position: absolute;
+        top:21vw;
+        left:50%;
+        transform: translateX(-50%);
+        text-decoration: none;
+        background: #8fc91f;
+        border-radius: 5px;
+        display: inline-block;
+        padding:10px  14px;
+        cursor: pointer;
+        img{
+          vertical-align: middle;
+        }
+        span{
+          vertical-align: middle;
+          color: #fff;
+          font-family: "Century Gothic";
+          font-size: 18px;
+        }
+      }
+
+      .footer{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        min-width:1050px;
+        height: 175px;
+        background-color: rgba(231, 233, 236,.1);
+        @include display-flex(flex);
+        justify-content: center;
+        align-items: center;
+        p{
+          font-size: 10px;
+          font-family: "Microsoft YaHei";
+          color: rgb(70, 70, 70);
+          position: absolute;
+          bottom:56px;
+
+        }
+      }
+    }
+  }
+}
